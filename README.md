@@ -13,8 +13,8 @@ git clone
 1. Navigate to `http://localhost:4200/` in browser
 
 ## Technologies
-Frontend: Angular2
-Backend: API - [https://www.cbr-xml-daily.ru/daily_utf8.xml](https://www.cbr-xml-daily.ru/daily_utf8.xml), [https://www.cbr-xml-daily.ru/daily_json.js](https://www.cbr-xml-daily.ru/daily_json.js)
+- **Frontend:** Angular2
+- **Backend:** API - [https://www.cbr-xml-daily.ru/daily_utf8.xml](https://www.cbr-xml-daily.ru/daily_utf8.xml), [https://www.cbr-xml-daily.ru/daily_json.js](https://www.cbr-xml-daily.ru/daily_json.js)
 
 ## Demo
 <img src="src/assets/img/Screenshot from 2020-11-08 13-34-03.png" align="left" height="auto" width="1000" >
