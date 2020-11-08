@@ -2,15 +2,15 @@
 Тестовое задание на позицию Junior Frontend Developer
 
 ## How to run
-1.Clone project
+1. Clone project
 git clone
-2. Navigate to project's folder 
+1. Navigate to project's folder 
 `cd test-current-currency`
-3. Install dependencies
+1. Install dependencies
 `npm i`
-4. Run project
+1. Run project
 `ng serve`
-5.Navigate to `http://localhost:4200/` in browser
+1.Navigate to `http://localhost:4200/` in browser
 
 ## Technologies
 Frontend: Angular2
