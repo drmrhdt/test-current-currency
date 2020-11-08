@@ -1,0 +1,28 @@
+@import '../styles/variables.scss';
+
+:host {
+  display: block;
+  width: 50%;
+  margin: 50px auto;
+  padding: 10px 20px 25px 20px;
+
+  box-shadow: 0 1px 3px transparentize($color: $black, $amount: 0.78),
+  0 1px 2px transparentize($color: $black, $amount: 0.76);
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0 14px 28px transparentize($color: $black, $amount: 0.75),
+    0 10px 10px transparentize($color: $black, $amount: 0.78);
+  }
+
+  .app {
+    &__text {
+      margin: 0 0 10px 0;
+    }
+
+    &__current-eur {
+      font-size: 1.5rem;
+    }
+  }
+}
