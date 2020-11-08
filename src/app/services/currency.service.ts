@@ -14,8 +14,9 @@ import { Valute } from '../models';
 export class CurrencyService {
   currentCurrency$: Observable<Valute>;
 
-  private _formats = ['xml', 'json'];
-  private _currentFormat = new BehaviorSubject(this._formats[0]);
+  private FORMATS = ['xml', 'json'];
+  private INTERVAL = 10000;
+  private _currentFormat = new BehaviorSubject(this.FORMATS[0]);
 
   constructor(
     private _jsonCurrencyService: JsonCurrencyService,
@@ -25,7 +26,7 @@ export class CurrencyService {
   }
 
   private _getCurrency() {
-    this.currentCurrency$ = timer(0, 10000).pipe(
+    this.currentCurrency$ = timer(0, this.INTERVAL).pipe(
       mergeMap(() => {
         switch (this._currentFormat.value) {
           case 'json':
@@ -37,11 +38,11 @@ export class CurrencyService {
         }
       }),
       catchError((err) => {
-        const _currentFormatIndex = this._formats.findIndex(
+        const _currentFormatIndex = this.FORMATS.findIndex(
           (i) => i === this._currentFormat.value
         );
         this._currentFormat.next(
-          this._formats[(_currentFormatIndex + 1) % this._formats.length]
+          this.FORMATS[(_currentFormatIndex + 1) % this.FORMATS.length]
         );
         return of(err);
       }),
