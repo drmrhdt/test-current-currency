@@ -1,6 +1,6 @@
 <h1>Текущий курс Евро по отношению к российскому рублю</h1>
 <div class="app__text">Данные обновляются каждые 10 секунд</div>
 <div class="app__text app__current-eur">
-  {{(currencyData$ | async)?.Name}}({{(currencyData$ | async)?.CharCode}}) -
-  {{(currencyData$ | async)?.Value}} руб.
+  {{(currentCurrency$ | async)?.Name}}({{(currentCurrency$ | async)?.CharCode}}) -
+  {{(currentCurrency$ | async)?.Value}} руб.
 </div>

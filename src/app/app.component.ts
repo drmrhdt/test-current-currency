@@ -3,7 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, BehaviorSubject, timer, Subject } from 'rxjs';
 import { catchError, mergeMap, share, takeUntil } from 'rxjs/operators';
 
-import { CurrencyService } from './services/currency.service';
+import { JsonCurrencyService } from './services/json-currency.service';
+import { XmlCurrencyService } from './services/xml-currency.service';
 
 import { Valute } from './models';
 
@@ -13,13 +14,16 @@ import { Valute } from './models';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  currencyData$: Observable<Valute>;
+  currentCurrency$: Observable<Valute>;
 
   private _formats = ['xml', 'json'];
   private _currentFormat = new BehaviorSubject(this._formats[0]);
   private _unsubscriber$ = new Subject();
 
-  constructor(private _currencyService: CurrencyService) {}
+  constructor(
+    private _jsonCurrencyService: JsonCurrencyService,
+    private _xmlCurrenyService: XmlCurrencyService
+  ) {}
 
   ngOnInit() {
     this._currentFormat
@@ -33,15 +37,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private _getCurrency() {
-    this.currencyData$ = timer(0, 10000).pipe(
+    this.currentCurrency$ = timer(0, 10000).pipe(
       mergeMap(() => {
         switch (this._currentFormat.value) {
           case 'json':
-            return this._currencyService.getCurrency();
+            return this._jsonCurrencyService.getCurrency();
           case 'xml':
-            return this._currencyService.getCurrencyXml();
+            return this._xmlCurrenyService.getCurrency();
           default:
-            this._currencyService.getCurrency();
+            this._jsonCurrencyService.getCurrency();
         }
       }),
       catchError((err) => {
