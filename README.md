@@ -10,7 +10,7 @@ git clone
 `npm i`
 1. Run project
 `ng serve`
-1.Navigate to `http://localhost:4200/` in browser
+1. Navigate to `http://localhost:4200/` in browser
 
 ## Technologies
 Frontend: Angular2
